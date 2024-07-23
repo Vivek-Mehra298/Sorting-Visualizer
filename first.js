@@ -1,6 +1,6 @@
 const container = document.querySelector(".container");
 const soundElement = document.getElementById("sort-sound");
-const barCount = 30; // Using a more descriptive variable name
+const barCount = 25; // Using a more descriptive variable name
 const array = []; // Descriptive name for the array
 let isSorting = false; // Flag to track sorting progress
 
