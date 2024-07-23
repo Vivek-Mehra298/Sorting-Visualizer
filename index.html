@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorting Visualizer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Sorting Visualizer</h1>
+    <h3>by Vivek Dehariya</h3>
+
+    <div class="container"></div>
+
+    <hr>
+
+    <div class="btn-container">
+        <button onclick="init()">Init</button>
+        <button onclick="play()">Play</button>
+    </div>
+    <div class="option-value">
+        <select id="sort-select">
+            <option value="bubble" class="option">Bubble Sort</option>
+            <option value="insertion" class="option">Insertion Sort</option>
+            <option value="selection" class="option">Selection Sort</option>
+            <!-- <option value="merge" class="option">Merge Sort</option>
+            <option value="quick" class="option">Quick Sort</option> -->
+        </select>
+    </div>
+
+    <audio id="sort-sound" src="545375__erokia__sweet-arp-wdrums-msfxp9-187_7_3-mono-swap-synth-drum-loop-16-bar-bpm-100.wav"></audio>
+
+    <script src="first.js"></script>
+</body>
+</html>
