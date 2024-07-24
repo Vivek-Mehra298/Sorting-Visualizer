@@ -7,7 +7,11 @@ body {
   color: white;
   background-color: black;
 }
+h1{
+  color:blue;
+}
 h3 {
+  color:red;
   text-align: center;
   margin-top: 2px;
 }
@@ -25,8 +29,8 @@ button {
   border-radius: 10px;
   padding: 12px;
   font-weight: 700;
-  background-color: white;
-  color: black;
+  background-color: blue;
+  color: red;
 }
 button:hover {
   background-color: black;
@@ -35,15 +39,16 @@ button:hover {
 }
 .bar {
   width: 8px;
-  background-color: white;
+  /* background-color: white; */
+  background-color:  rgb(245, 180, 180);
   margin: 1px;
 }
 .option-value {
   margin-top: 1.5rem;
 }
 #sort-select {
-  background-color: white;
-  color: black;
+  background-color: red;
+  color: white;
   padding: 10px;
   border-radius: 10px;
 }
