@@ -1,7 +1,8 @@
 body {
    height: 100vh;
   width: 100%;
-  background: linear-gradient(45deg, rgb(63, 26, 26), rgb(33, 33, 93));
+/*   background: linear-gradient(45deg, rgb(63, 26, 26), rgb(33, 33, 93)); */
+ background: linear-gradient(45deg, #0a0a0a, #3a4452);//background color
   font-family: sans-serif;
   box-sizing: border-box;
   display: flex;
