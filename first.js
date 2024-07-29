@@ -1,13 +1,13 @@
 const container = document.querySelector(".container");
 const soundElement = document.getElementById("sort-sound");
-const barCount = 30; // Using a more descriptive variable name
-const array = []; // Descriptive name for the array
+const barCount = 30; // Number of bars
+const array = []; // Array to hold values
 let isSorting = false; // Flag to track sorting progress
-
-init();
 
 // Set the audio to loop
 soundElement.loop = true;
+
+init(); // Initialize the visualization
 
 function init() {
   for (let i = 0; i < barCount; i++) {
@@ -36,6 +36,9 @@ function play() {
     case "merge":
       moves = mergeSort(copy);
       break;
+    case "quick":
+      moves = quickSort(copy);
+      break;
     default:
       console.error("Invalid sort option");
   }
@@ -48,7 +51,8 @@ function play() {
 function animate(moves) {
   if (moves.length === 0) {
     showBars();
-    soundElement.pause();
+    soundElement.pause(); // Pause sound when sorting is completed
+    soundElement.currentTime = 0; // Reset the playback time to the beginning
     isSorting = false; // Reset sorting flag
     return;
   }
@@ -60,8 +64,7 @@ function animate(moves) {
     [array[i], array[j]] = [array[j], array[i]];
   }
 
-  // ... (omitted audio note code)
-
+  // Update visualization
   showBars(move);
   setTimeout(() => animate(moves), 50); // Using arrow function for brevity
 }
@@ -122,7 +125,6 @@ function insertionSort(array) {
   }
   return moves;
 }
-
 
 function quickSort(array) {
   const moves = [];
