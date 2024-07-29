@@ -6,7 +6,8 @@ let isSorting = false; // Flag to track sorting progress
 
 init();
 
-// ... (omitted audio context code)
+// Set the audio to loop
+soundElement.loop = true;
 
 function init() {
   for (let i = 0; i < barCount; i++) {
