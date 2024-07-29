@@ -123,6 +123,38 @@ function insertionSort(array) {
   return moves;
 }
 
+
+function quickSort(array) {
+  const moves = [];
+  function quickSortRecursive(arr, low, high) {
+    if (low < high) {
+      const pi = partition(arr, low, high);
+      quickSortRecursive(arr, low, pi - 1);
+      quickSortRecursive(arr, pi + 1, high);
+    }
+  }
+
+  function partition(arr, low, high) {
+    const pivot = arr[high];
+    let i = (low - 1);
+
+    for (let j = low; j < high; j++) {
+      moves.push({ indices: [j, high], type: "comp" }); // Comparison
+      if (arr[j] <= pivot) {
+        i++;
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+        moves.push({ indices: [i, j], type: "swap" }); // Swap
+      }
+    }
+    [arr[i + 1], arr[high]] = [arr[high], arr[i + 1]];
+    moves.push({ indices: [i + 1, high], type: "swap" }); // Swap
+    return i + 1;
+  }
+
+  quickSortRecursive(array, 0, array.length - 1);
+  return moves;
+}
+
 function showBars(move) {
   container.innerHTML = "";
   for (let i = 0; i < array.length; i++) {
