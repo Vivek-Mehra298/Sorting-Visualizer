@@ -1,53 +1,65 @@
 body {
-   height: 100vh;
+  height: 100vh;
   width: 100%;
-/*   background: linear-gradient(45deg, rgb(63, 26, 26), rgb(33, 33, 93)); */
- background: linear-gradient(45deg, #0a0a0a, #3a4452);//background color
+  background: linear-gradient(45deg, #0a0a0a, #3a4452);
   font-family: sans-serif;
   box-sizing: border-box;
   display: flex;
   align-items: center;
   flex-direction: column;
   color: white;
+  margin: 0;
+  padding: 20px;
 }
-h1{
-  color:red;
+h1 {
+  color: red;
 }
 h3 {
-  color:blue;
+  color: blue;
   text-align: center;
   margin-top: 2px;
 }
 .container {
-  height: 200px;
+  height: 400px;
   display: flex;
   align-items: flex-end;
-  margin-top: 70px;
+  justify-content: center;
+  margin-top: 20px;
+  width: 100%;
+  max-width: 800px;
 }
 .btn-container {
   margin-top: 30px;
-  gap: 50px;
+  gap: 10px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 button {
   border-radius: 10px;
   padding: 12px;
   font-weight: 700;
   background-color: blue;
-  color: red;
+  color: white;
+  border: none;
+  margin: 5px;
 }
 button:hover {
-   box-shadow: 0px 3px 15px rgba(206, 216, 281, 0.95);
+  box-shadow: 0px 3px 15px rgba(206, 216, 281, 0.95);
   background-color: red;
-  color: blue;
+  color: white;
   cursor: pointer;
 }
 .bar {
-  width: 8px;
-   background-color: rgb(173, 217, 234);
+  width: 10px;
+  background-color: rgb(173, 217, 234);
   margin: 1px;
 }
 .option-value {
   margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 #sort-select {
   background-color: red;
@@ -55,6 +67,23 @@ button:hover {
   padding: 10px;
   border-radius: 10px;
 }
-.option {
-  font-weight: 400;
+#speed-range {
+  background-color: white;
+  border: none;
+  width: 150px;
+}
+
+@media screen and (max-width: 660px) {
+  .container {
+    height: 340px;
+  }
+  .option-value {
+    padding: 10px;
+  }
+  #speed-range {
+    width: 120px;
+  }
+  .bar {
+    width: 8px;
+  }
 }
