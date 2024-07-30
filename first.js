@@ -3,17 +3,41 @@ const soundElement = document.getElementById("sort-sound");
 const barCount = 30; // Number of bars
 const array = []; // Array to hold values
 let isSorting = false; // Flag to track sorting progress
+let animationSpeed = 50; // Default animation speed
+let currentMoves = []; // Moves to animate
+let currentAnimation = null; // Current animation timeout
 
 // Set the audio to loop
 soundElement.loop = true;
 
+document.getElementById("speed-range").addEventListener("input", function(event) {
+  animationSpeed = 200 - event.target.value;
+});
+
 init(); // Initialize the visualization
 
 function init() {
+  array.length = 0;
   for (let i = 0; i < barCount; i++) {
     array[i] = Math.random();
   }
   showBars();
+}
+
+function reset() {
+  if (isSorting) {
+    stop(); // Stop the current animation
+  }
+  init();
+}
+
+function stop() {
+  if (isSorting) {
+    clearTimeout(currentAnimation);
+    soundElement.pause();
+    soundElement.currentTime = 0;
+    isSorting = false;
+  }
 }
 
 function play() {
@@ -45,11 +69,12 @@ function play() {
 
   soundElement.play(); // Play sound on start
 
-  animate(moves);
+  currentMoves = moves;
+  animate();
 }
 
-function animate(moves) {
-  if (moves.length === 0) {
+function animate() {
+  if (currentMoves.length === 0) {
     showBars();
     soundElement.pause(); // Pause sound when sorting is completed
     soundElement.currentTime = 0; // Reset the playback time to the beginning
@@ -57,7 +82,7 @@ function animate(moves) {
     return;
   }
 
-  const move = moves.shift();
+  const move = currentMoves.shift();
   const [i, j] = move.indices;
 
   if (move.type === "swap") {
@@ -66,7 +91,7 @@ function animate(moves) {
 
   // Update visualization
   showBars(move);
-  setTimeout(() => animate(moves), 50); // Using arrow function for brevity
+  currentAnimation = setTimeout(animate, animationSpeed); // Use setTimeout with dynamic speed
 }
 
 function bubbleSort(array) {
