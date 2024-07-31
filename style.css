@@ -75,7 +75,7 @@ button:hover {
 
 @media screen and (max-width: 660px) {
   .container {
-    height: 340px;
+    height: 260px;
   }
   .option-value {
     padding: 10px;
